@@ -1,11 +1,16 @@
+import java.awt.*;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
+import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
@@ -48,44 +53,74 @@ public class Main {
             String resetColor = "\u001B[0m";
             String emptyStar = "\u2606";
             String filledStar = "\u2605";
+            StickerGenerator stickerGenerator = new StickerGenerator();
+
+            // This is necessary to get the bigger version of the image
+            Pattern imdbImageRegex = Pattern.compile("(\\.[\\.\\w,]+)(\\.jpg|\\.jpeg|\\.png)$");
+            int counter = 0;
 
             // handle and show however I want
             for (Map<String, String> movieItem : moviesList) {
                 int rating = 0;
+                String imageUrl = movieItem.get("image");
                 String imdbRating = movieItem.get("imDbRating");
+                String title = movieItem.get("title");
 
-                if (imdbRating != "") {
+                if (imdbRating != null && !imdbRating.isEmpty()) {
                     rating = Math.round(Float.parseFloat(imdbRating));
                 }
 
-                String emoji = switch(rating) {
-                    case 1,2 -> "🙁";
-                    case 4,5 -> "😐";
-                    case 6,7 -> "🙂";
-                    case 8,9 -> "😀";
-                    case 10 -> "😍";
-                    default -> "😩";
+                String[] emoji = switch(rating) {
+                    case 1,2 -> new String[]{"🙁", "NÂO VALE A PENA"};
+                    case 4,5 -> new String[]{"😐", "NÃO RECOMENDO"};
+                    case 6,7 -> new String[]{"🙂", "LEGAL"};
+                    case 8,9 -> new String[]{"😀", "BOM"};
+                    case 10 -> new String[]{"😍", "TOPZERA"};
+                    default -> new String[]{"😩", "UMA PORCARIA"};
                 };
 
-                System.out.println("Title: " + movieItem.get("title") + " " + emoji);
-                System.out.println("Image: " + movieItem.get("image"));
+                System.out.println("Title: " + title + " " + emoji[0]);
+                System.out.println("Image: " + imageUrl);
 
                 int totalStars = 10;
                 System.out.print("Rating: ");
                 for(int i = 1; i <= rating; i++) {
                     System.out.print(starColor + filledStar + resetColor);
                 }
-
                 for(int i = 1; i <= totalStars - rating; i++) {
                     System.out.print(starColor + emptyStar + resetColor);
                 }
-
                 System.out.println();
+
+                Matcher imdbImageMatcher = imdbImageRegex.matcher(imageUrl);
+
+                if (imdbImageMatcher.find()) {
+                    String fileName = title.replace(":", "-").replace(" ","_");
+                    System.out.println("Generating sticker for bigger image");
+                    String biggerImageUrl = imageUrl.replace(imdbImageMatcher.group(1), "");
+                    System.out.println("biggerImageUrl: " + biggerImageUrl);
+                    InputStream imageInputStream = new URL(biggerImageUrl).openStream();
+
+                    stickerGenerator.create(
+                            imageInputStream,
+                            emoji[1],
+                            Color.YELLOW,
+                            fileName
+                    );
+
+                    counter++;
+                }
+
                 System.out.println("---------------------------------------------------------------------------------");
+
+                if (counter == 10) {
+                    return;
+                }
             }
-        } catch(IOException exception) {
-            System.out.println("Exception: " + exception);
+        } catch(IOException e) {
+            e.printStackTrace();
         } catch (InterruptedException e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }
