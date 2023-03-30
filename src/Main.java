@@ -10,14 +10,12 @@ import java.util.regex.Pattern;
 public class Main {
     public static void main(String[] args) {
         // request contents
-        String url = "https://imdb-api.com/pt/API/Top250Movies/" + System.getenv("IMDB_API_KEY");
-//        String url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2022-06-12&end_date=2022-06-14";
+        API apiSettings = API.IMDB_TOP_250_MOVIES;
+        String url = apiSettings.getUrl();
+        ContentExtractor contentExtractor = apiSettings.getContentExtractor();
+
         HTTPClient httpClient = new HTTPClient();
         String json = httpClient.request(url);
-
-        // extract content
-        ContentExtractor contentExtractor = new IMDBContentExtractor();
-//        ContentExtractor contentExtractor = new NASAContentExtractor();
         List<Content> contents = contentExtractor.extractContent(json);
 
         /*
@@ -34,7 +32,9 @@ public class Main {
 
         // handle and show however I want
         StickerGenerator stickerGenerator = new StickerGenerator();
-        for (int index = 0; index < 3; index++) {
+        int iterationLimit = Math.min(5, contents.size());
+
+        for (int index = 0; index < iterationLimit; index++) {
             int rating = 0;
             String imageUrl = contents.get(index).imageUrl();
             String imdbRating = contents.get(index).rating();
@@ -71,13 +71,21 @@ public class Main {
             System.out.println();
 
             try {
-                String fileName = title.replace(":", "-").replace(" ","_");
                 System.out.println("Generating sticker");
                 InputStream imageInputStream = new URL(imageUrl).openStream();
+                String stickerText = emoji[1];
+                Color stickerTextColor = Color.YELLOW;
+                String fileName = title.replace(":", "-").replace(" ","_");
+
+                if (apiSettings.getSource().equals("NASA")) {
+                    stickerText = "Que tal?";
+                    stickerTextColor = Color.WHITE;
+                }
+
                 stickerGenerator.create(
                         imageInputStream,
-                        emoji[1],
-                        Color.YELLOW,
+                        stickerText,
+                        stickerTextColor,
                         fileName
                 );
             } catch (IOException exception) {
