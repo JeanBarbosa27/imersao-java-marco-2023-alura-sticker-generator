@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$USER_HOME$/Personal/Projects/Java/ImersaoJavaAluraVersao2/ImersaoJavaAluraVersao2.iml" filepath="$USER_HOME$/Personal/Projects/Java/ImersaoJavaAluraVersao2/ImersaoJavaAluraVersao2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AluraStickersGenerator.iml" filepath="$PROJECT_DIR$/AluraStickersGenerator.iml" />
     </modules>
   </component>
 </project>
