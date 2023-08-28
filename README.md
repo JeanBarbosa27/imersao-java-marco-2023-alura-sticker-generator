@@ -10,27 +10,27 @@ por exemplo, fazendo uso das próprias imagens que são retornadas da resposta d
 
 ## Dependências do projeto
 
-O projeto foi desenvolvido usando Java 17.0.6, então para esta é a versão mínima necessária para rodar o projeto local-
-mente.
+- Java 17
+- Conta no IMDB para gerar o API KEY
 
-## Rodando o projeto localmente
+___
 
-<!--
-    TODO:
-        - [ ] Explicar que para conseguir chamar a API, precisará se registrar no IMDB, para ter uma API Key
-        - [ ] Precisará adicionar essa APY em um arquivo de configurações ou então em uma variável de ambiente se for
-                um arquivo de configuração, seria o caso de criar um `config.properties-sample` ou algo do tipo que
-                poderia ser duplicado e renomeado para `config.properties` e teria os valores das chaves alterados,
-                conforme as chaves secretas que forem necessárias no projeto.
-        - [ ] Colocar o comando para rodar o projeto sem uma IDE
--->
+🚧🚧
 
-## Referências
+**Documento em construção**
 
-<!--
-    TODO:
-        - [ ] Adicionar os links de referência que foram passados em cada aula. Talvez listados todos aqui ou apenas
-                tendo isto em uma arquivo só de referências
--->
+- [ ] Adicionar seções abaixo:
+  - [x] descrição
+  - [ ] dependências do projeto
+  - [ ] Rodando o projeto localmente
+    - [ ] Explicar que para conseguir chamar a API, precisará se registrar no IMDB, para ter uma API Key
+    - [ ] Precisará adicionar essa APY em um arquivo de configurações ou então em uma variável de ambiente se for
+      um arquivo de configuração, seria o caso de criar um `config.properties-sample` ou algo do tipo que
+      poderia ser duplicado e renomeado para `config.properties` e teria os valores das chaves alterados,
+      conforme as chaves secretas que forem necessárias no projeto.
+    - [ ] Colocar o comando para rodar o projeto sem uma IDE.
+  - [ ] Referências
+    - [ ] Adicionar os links de referência que foram passados em cada aula. Talvez listados todos aqui ou apenas
+      tendo isto em uma arquivo só de referências
 
-🚧🚧 **Documento em construção** 🚧🚧
+🚧🚧
