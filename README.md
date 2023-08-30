@@ -1,12 +1,14 @@
 # Alura Stickers
 
-Este projeto foi criado com o intuito de estudo a fim de acompanhar a 2ª versão da imersão Java do Alura, que ocorreu
-entre os dias 27 e 31 de março de 2023. Todo o código na V1 é completamente baseado no que foi passado nas aulas da
-imersão com alguns toques pessoais e na V2 serão incluídas funcionalidades próprias (ainda não definidas).
+Este projeto foi criado com o intuito de estudo de modo a acompanhar a 2.ª versão da imersão Java da Alura, que ocorreu
+entre os dias 27 e 31 de março de 2023 através do [canal da Alura no YouTube](https://youtube.com/@alura).
 
-A ideia do projeto em si é basicamente consumir uma API pública, que a princípio foi escolhida a do IMDB e, posterior-
-mente será feito um tratamento para gerar stickers para serem usados em plataformas de chat online (como o WhatsApp),
-por exemplo, fazendo uso das próprias imagens que são retornadas da resposta da API.
+Todo o código na V1 é completamente baseado no que foi passado nas aulas da imersão com alguns toques pessoais e na V2
+serão incluídas funcionalidades próprias (ainda não definidas, mas que listarei na seção abaixo "ideias próprias").
+
+A ideia do projeto é basicamente consumir uma API pública, que a princípio foi escolhida a do IMDB e gerar "stickers"
+para serem usados em plataformas de conversação como _WhatsApp_, por exemplo, usando das próprias imagens retornadas da
+resposta da API.
 
 ## Dependências do projeto
 
@@ -24,13 +26,14 @@ ___
   - [ ] dependências do projeto
   - [ ] Rodando o projeto localmente
     - [ ] Explicar que para conseguir chamar a API, precisará se registrar no IMDB, para ter uma API Key
-    - [ ] Precisará adicionar essa APY em um arquivo de configurações ou então em uma variável de ambiente se for
+    - [ ] Precisará adicionar essa APY num arquivo de configurações ou então numa variável de ambiente se for
       um arquivo de configuração, seria o caso de criar um `config.properties-sample` ou algo do tipo que
       poderia ser duplicado e renomeado para `config.properties` e teria os valores das chaves alterados,
       conforme as chaves secretas que forem necessárias no projeto.
     - [ ] Colocar o comando para rodar o projeto sem uma IDE.
   - [ ] Referências
-    - [ ] Adicionar os links de referência que foram passados em cada aula. Talvez listados todos aqui ou apenas
-      tendo isto em uma arquivo só de referências
+    - [ ] Adicionar as referências passadas em cada aula. Talvez listados todos aqui ou apenas
+      tendo isto num arquivo só de referências
+  - [ ] ideiais próprias
 
 🚧🚧
