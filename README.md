@@ -1,4 +1,4 @@
-# Alura Stickers
+# Alura Stickers Generator
 
 Este projeto foi criado com o intuito de estudo de modo a acompanhar a 2.ª versão da imersão Java da Alura, que ocorreu
 entre os dias 27 e 31 de março de 2023 através do [canal da Alura no YouTube](https://youtube.com/@alura).
