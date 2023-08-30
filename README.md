@@ -3,7 +3,8 @@
 Este projeto foi criado com o intuito de estudo de modo a acompanhar a 2.ª versão da imersão Java da Alura, que ocorreu
 entre os dias 27 e 31 de março de 2023 através do [canal da Alura no YouTube](https://youtube.com/@alura).
 
-Todo o código na V1 é completamente baseado no que foi passado nas aulas da imersão com alguns toques pessoais e na V2
+Todo o código que é completamente baseado no que foi passado nas aulas da imersão com alguns toques pessoais colocarei
+na tag v1.0.0 e, todo código incluído a partir de ideias e/ou implementação própria, colocarei na tag v2.x.y
 serão incluídas funcionalidades próprias (ainda não definidas, mas que listarei na seção abaixo "ideias próprias").
 
 A ideia do projeto é basicamente consumir uma API pública, que a princípio foi escolhida a do IMDB e gerar "stickers"
